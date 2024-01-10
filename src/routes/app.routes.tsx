@@ -10,23 +10,26 @@ import { HomePage } from '@pages/Home/Home';
 import { ProfilePage } from '@pages/Profile/Profile';
 
 // UTILS
-import { isAuthenticated } from '@utils/isAuthenticated';
+import { PrivateRoutes } from '@utils/privateRoutes';
 
 // APP ROUTES
 export const AppRoutes: React.FC = () => {
-  /* Utils */
-  const privateRoute = (element: React.ReactNode) => {
-    return isAuthenticated ? <>{element}</> : <Navigate to="/auth" replace />;
-  };
-
   /* Renders */
   return (
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/" element={privateRoute(<HomePage />)} />
-          <Route path="/profile" element={privateRoute(<ProfilePage />)} />
+          {/* private routes */}
+          <Route element={<PrivateRoutes />}>
+            <Route element={<HomePage />} path="/" />
+            <Route element={<ProfilePage />} path="/profile" />
+          </Route>
+
+          {/* public routes */}
+          <Route element={<AuthPage />} path="/auth" />
+
+          {/* unmatched routes */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AuthProvider>
     </Router>

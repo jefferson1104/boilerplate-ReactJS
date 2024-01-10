@@ -20,12 +20,17 @@ export default {
     '!<rootDir>/src/enums/**/*.{js,jsx,ts,tsx}',
     '!<rootDir>/src/services/**/*.{js,jsx,ts,tsx}',
     '!<rootDir>/src/styles/**/*.{js,jsx,ts,tsx}',
-    '!<rootDir>/src/utils/**/*.{js,jsx,ts,tsx}'
+    '!<rootDir>/src/utils/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/src/contexts/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/src/hooks/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/src/pages/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/src/routes/**/*.{js,jsx,ts,tsx}'
   ],
   moduleNameMapper: {
     '^@enums/(.*)$': '<rootDir>/src/enums/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@contexts/(.*)$': '<rootDir>/src/contexts/$1',
+    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^@interfaces/(.*)$': '<rootDir>/src/interfaces/$1',
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@routes/(.*)$': '<rootDir>/src/routes/$1',

@@ -10,6 +10,7 @@ export default defineConfig({
       '@enums': '/src/enums',
       '@components': '/src/components',
       '@contexts': '/src/contexts',
+      '@hooks': '/src/hooks',
       '@interfaces': '/src/interfaces',
       '@pages': '/src/pages',
       '@routes': '/src/routes',

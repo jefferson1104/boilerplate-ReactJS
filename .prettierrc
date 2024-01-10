@@ -4,5 +4,5 @@
   "singleQuote": true,
   "eslintIntegration": true,
   "printWidth": 120,
-  "importAliases": ["@enums", "@components", "@contexts", "@interfaces", "@pages", "@routes", "@services", "@styles", "@utils" ]
+  "importAliases": ["@enums", "@components", "@contexts", "@hooks", "@interfaces", "@pages", "@routes", "@services", "@styles", "@utils" ]
 }
