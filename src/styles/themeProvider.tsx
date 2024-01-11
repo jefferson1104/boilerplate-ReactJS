@@ -1,18 +1,26 @@
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import { GlobalStyles } from '@styles/globalStyles';
-import { theme } from '@styles/theme';
+// CONTEXTS
+import { useThemeContextHook } from '@contexts/theme.context';
 
+// STYLES
+import { GlobalStyles } from '@styles/globalStyles';
+
+// THEME PROVIDER UTILS
 interface IThemeProviderProps {
   children: React.ReactNode;
-  theme?: DefaultTheme;
+  theme: DefaultTheme;
 }
 
+// THEME PROVIDER
 export const ThemeProvider: React.FC<IThemeProviderProps> = ({ children, theme: customTheme }) => {
+  const { theme } = useThemeContextHook();
+
+  /* Renders */
   return (
     <StyledThemeProvider theme={customTheme || theme}>
-      {children}
       <GlobalStyles />
+      {children}
     </StyledThemeProvider>
   );
 };

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-import { theme } from '@styles/theme';
-
 export const Wrapper = styled.header`
   display: flex;
   align-items: center;
@@ -12,8 +10,8 @@ export const Wrapper = styled.header`
   height: 4rem;
   width: 100%;
 
-  background-color: ${theme.colors.breezyGray};
-  color: ${theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.breezyGray};
+  color: ${(props) => props.theme.colors.secondary};
 
   ${media.lessThan('medium')`
     padding: 0 1rem;
@@ -21,9 +19,9 @@ export const Wrapper = styled.header`
 `;
 
 export const Title = styled.p`
-  font-size: ${theme.fonts.size.large};
-  font-family: ${theme.fonts.family.secondary};
-  font-weight: ${theme.fonts.weight.thin};
+  font-size: ${(props) => props.theme.fonts.size.large};
+  font-family: ${(props) => props.theme.fonts.family.secondary};
+  font-weight: ${(props) => props.theme.fonts.weight.thin};
 `;
 
 export const ButtonWrapper = styled.div`

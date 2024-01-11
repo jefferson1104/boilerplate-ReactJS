@@ -1,17 +1,4 @@
-import { DefaultTheme } from 'styled-components';
-
-export const theme: DefaultTheme = {
-  title: 'default',
-  colors: {
-    primary: '#1e272e',
-    secondary: '#f1f2f6',
-    electronBlue: '#0984e3',
-    fluorescentRed: '#ff5252',
-    greenEmerald: '#2ecc71',
-    lightGray: '#dfe6e9',
-    breezyGray: '#b2bec3',
-    white: '#ffffff'
-  },
+export const sharedContent = {
   fonts: {
     family: {
       primary: 'Poppins, sans-serif',

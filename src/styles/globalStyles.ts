@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { theme } from '@styles/theme';
-
 export const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
@@ -24,9 +22,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    color: ${theme.colors.primary};
-    background: ${theme.colors.secondary};
-    font-family: ${theme.fonts.family.primary};
+    color: ${(props) => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.secondary};
+    font-family: ${(props) => props.theme.fonts.family.primary};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
