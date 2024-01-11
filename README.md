@@ -13,7 +13,7 @@
 </div>
 
 ## About project
-This is a boilerplate for ReactJS projects using *ViteJS*, in the project we already have a configuration of *ESLint, Prettier and Husky* to test pre-commits and also unit tests, also libraries like *TypeScript, styled-components are already configured , Jest & react-testing-library*.
+This is a boilerplate for ReactJS projects using *ViteJS*, in the project we already have a configuration of *ESLint, Prettier*, also libraries like *TypeScript, styled-components are already configured , Jest & react-testing-library*.
 
 ## Technologies
 - [Vite](https://vitejs.dev/)
@@ -25,7 +25,6 @@ This is a boilerplate for ReactJS projects using *ViteJS*, in the project we alr
 - [plop](https://plopjs.com/)
 - [eslint](https://eslint.org/)
 - [prettier](https://prettier.io/)
-- [husky](https://typicode.github.io/husky/)
 
 
 ## Run this project

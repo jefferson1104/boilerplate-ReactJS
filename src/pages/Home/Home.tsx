@@ -29,9 +29,7 @@ export const HomePage = () => {
       <Styled.Content>
         <Styled.Title>Boilerplate Vite + ReactJS</Styled.Title>
 
-        <Styled.Paragraph>
-          Vite • ReactJS • TypeScript • Jest • Styled-Components • ESLint • Prettier • Husky
-        </Styled.Paragraph>
+        <Styled.Paragraph>Vite • ReactJS • TypeScript • Jest • Styled-Components • ESLint • Prettier</Styled.Paragraph>
       </Styled.Content>
 
       <Styled.Footer>
