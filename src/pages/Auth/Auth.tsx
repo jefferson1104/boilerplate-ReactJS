@@ -38,13 +38,6 @@ export const AuthPage = () => {
   const { theme } = useThemeContextHook();
   const { signInWithGoogle, signInWithEmailAndPassword } = useAuthContextHook();
 
-  /* Vars */
-  const googleLogo = '/assets/images/auth/google.svg';
-  const linkedinLogo = '/assets/images/auth/linkedin.svg';
-  const facebookLogo = '/assets/images/auth/facebook.svg';
-  const githubLogo =
-    theme?.title === ETheme.LIGHT ? '/assets/images/auth/github-light.svg' : '/assets/images/auth/github.svg';
-
   /* Handlers */
   const inputChangeHandler = (field: string, value: string) => {
     setFormValues((values) => ({ ...values, [field]: value }));

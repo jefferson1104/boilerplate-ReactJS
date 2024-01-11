@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-import { theme } from '@styles/theme';
-
+// HOME PAGE STYLES
 export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 4rem);
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   margin-bottom: 2rem;
 
   ${media.lessThan('medium')`
@@ -33,7 +32,7 @@ export const Content = styled.div`
   `}
 `;
 
-export const Footer = styled.footer`
+export const Footer = styled.div`
   margin-top: 2.5rem;
 
   display: flex;
@@ -58,35 +57,39 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h1`
-  font-size: ${theme.fonts.size.huge};
-  font-weight: ${theme.fonts.weight.bold};
+  font-size: ${(props) => props.theme.fonts.size.huge};
+  font-weight: ${(props) => props.theme.fonts.weight.bold};
 
   ${media.lessThan('medium')`
-    font-size: ${theme.fonts.size.medium};
+    font-size: ${(props) => props.theme.fonts.size.medium};
   `}
 `;
 
 export const Paragraph = styled.p`
-  font-size: ${theme.fonts.size.medium};
+  font-size: ${(props) => props.theme.fonts.size.medium};
 
   ${media.lessThan('medium')`
-    font-size: ${theme.fonts.size.small};
+    font-size: ${(props) => props.theme.fonts.size.small};
   `}
 `;
 
 export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
   width: 20rem;
 
   ${media.lessThan('medium')`
-    font-size: ${theme.fonts.size.tiny};
+    font-size: ${(props) => props.theme.fonts.size.tiny};
   `}
 `;
 
 export const Link = styled.a`
-  font-family: ${theme.fonts.family.secondary};
-  font-size: ${theme.fonts.size.small};
-  font-weight: ${theme.fonts.weight.light};
-  color: ${theme.colors.primary};
+  font-family: ${(props) => props.theme.fonts.family.secondary};
+  font-size: ${(props) => props.theme.fonts.size.small};
+  font-weight: ${(props) => props.theme.fonts.weight.light};
+  color: ${(props) => props.theme.colors.primary};
 
   transition: all 0.5s ease-in-out;
 
@@ -96,6 +99,6 @@ export const Link = styled.a`
   }
 
   ${media.lessThan('medium')`
-  font-size: ${theme.fonts.size.small};
+  font-size: ${(props) => props.theme.fonts.size.small};
   `}
 `;

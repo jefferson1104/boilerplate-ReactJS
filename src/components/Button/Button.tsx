@@ -43,7 +43,7 @@ export const Button = ({
   const btnBgColor = {
     [EButtonStyle.PRIMARY]: colors.primary,
     [EButtonStyle.SECONDARY]: colors.electronBlue,
-    [EButtonStyle.OUTLINED]: 'none'
+    [EButtonStyle.OUTLINED]: 'transparent'
   };
 
   const btnBorder = {

@@ -1,19 +1,24 @@
+import { useNavigate } from 'react-router-dom';
+
 // COMPONENTS
 import { Button } from '@components/Button/Button';
 
 // ENUMS
 import { EButtonSize, EButtonStyle } from '@enums/buttons';
 
-// IMAGES
-import reactLogo from '/assets/images/logo/react.svg';
-import viteLogo from '/assets/images/logo/vite.svg';
-
 // STYLES
 import * as Styled from './Home.styles';
 
 // HOME PAGE
 export const HomePage = () => {
+  /* Hooks */
+  const navigate = useNavigate();
+
   /* Handlers */
+  const goToProfileHandler = () => {
+    navigate('/profile');
+  };
+
   const goToSourceCodeHandler = () => {
     window.open('https://github.com/jefferson1104/boilerplate-reactjs', '_blank');
   };
@@ -22,8 +27,8 @@ export const HomePage = () => {
   return (
     <Styled.Wrapper>
       <Styled.Header>
-        <Styled.Image src={viteLogo} className="logo" alt="Vite logo" />
-        <Styled.Image src={reactLogo} className="logo react" alt="React logo" />
+        <Styled.Image src="/assets/images/logo/vite.svg" className="logo" alt="Vite logo" />
+        <Styled.Image src="/assets/images/logo/react.svg" className="logo react" alt="React logo" />
       </Styled.Header>
 
       <Styled.Content>
@@ -34,6 +39,8 @@ export const HomePage = () => {
 
       <Styled.Footer>
         <Styled.ButtonWrapper>
+          <Button onClick={goToProfileHandler} size={EButtonSize.SMALL} styles={EButtonStyle.OUTLINED} text="Profile" />
+
           <Button
             onClick={goToSourceCodeHandler}
             size={EButtonSize.SMALL}
