@@ -1,7 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-
-// INTERFACES
-import { IFirebaseAutheticatedUser } from '@interfaces/auth';
+import { GoogleAuthProvider, UserCredential, signInWithPopup } from 'firebase/auth';
 
 // UTILS
 import { firebaseAuth } from '@utils/firebase';
@@ -20,11 +17,11 @@ export const AuthService = {
     // Retorne o token de autenticação ou lide com erros
   },
 
-  signInWithGoogle: async (): Promise<IFirebaseAutheticatedUser> => {
+  signInWithGoogle: async (): Promise<UserCredential> => {
     const googleFirebaseProvider = new GoogleAuthProvider();
 
     const responseGoogleAuth = await signInWithPopup(firebaseAuth, googleFirebaseProvider);
 
-    return responseGoogleAuth.user;
+    return responseGoogleAuth;
   }
 };

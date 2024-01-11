@@ -12,14 +12,14 @@ import { EButtonSize, EButtonStyle } from '@enums/buttons';
 // STYLES
 import * as Styled from './Profile.styles';
 
-// HOME PAGE
+// PROFILE PAGE
 export const ProfilePage = () => {
   /* Hooks */
   const navigate = useNavigate();
   const { user } = useAuthContextHook();
 
   /* Vars */
-  const avatar = user.photoURL ? user.photoURL : '/assets/images/auth/default-avatar.png';
+  const avatar = user?.picture ? user.picture : '/assets/images/auth/default-avatar.png';
 
   /* Handlers */
   const goToHomeHandler = () => {
@@ -34,8 +34,8 @@ export const ProfilePage = () => {
       </Styled.Header>
 
       <Styled.Content>
-        <Styled.Title>{user.displayName}</Styled.Title>
-        <Styled.Paragraph>{user.email}</Styled.Paragraph>
+        <Styled.Title>{user?.name}</Styled.Title>
+        <Styled.Paragraph>{user?.email}</Styled.Paragraph>
       </Styled.Content>
 
       <Styled.Footer>

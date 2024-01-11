@@ -1,4 +1,5 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // COMPONENTS
 import { Button } from '@components/Button/Button';
@@ -10,6 +11,9 @@ import { useAuthContextHook } from '@contexts/auth.context';
 // ENUMS
 import { EAuthProvider } from '@enums/auth';
 import { EButtonStyle } from '@enums/buttons';
+
+// HOOKS
+import { useIsAuthenticated } from '@hooks/useIsAuthenticated';
 
 // UTILS
 import { IFieldError, ISignInFormValues, signInValidation } from '@utils/formsValidations';
@@ -27,6 +31,8 @@ export const AuthPage = () => {
   });
 
   /* Hooks */
+  const navigate = useNavigate();
+  const isAuthenticated = useIsAuthenticated();
   const { signInWithGoogle, signInWithEmailAndPassword } = useAuthContextHook();
 
   /* Handlers */
@@ -54,6 +60,13 @@ export const AuthPage = () => {
       return;
     }
   };
+
+  /* Lifecyles */
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated]);
 
   /* Renders */
   return (
