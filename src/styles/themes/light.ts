@@ -1,7 +1,11 @@
 import { sharedContent } from './shared';
 
+// ENUMS
+import { ETheme } from '@enums/theme';
+
+// THEME
 export default {
-  title: 'light',
+  title: ETheme.LIGHT,
   colors: {
     primary: '#1e272e',
     secondary: '#f1f2f6',

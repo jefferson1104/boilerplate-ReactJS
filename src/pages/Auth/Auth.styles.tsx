@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import { theme } from '@styles/theme';
+
+// COMPONENTS
 import { Button } from '@components/Button/Button';
 
+// AUTH PAGE STYLES
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,13 +15,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: ${theme.fonts.family.primary};
-  font-size: ${theme.fonts.size.large};
+  font-family: ${(props) => props.theme.fonts.family.primary};
+  font-size: ${(props) => props.theme.fonts.size.large};
 `;
 
 export const Text = styled.p`
-  font-family: ${theme.fonts.family.primary};
-  font-size: ${theme.fonts.size.small};
+  font-family: ${(props) => props.theme.fonts.family.primary};
+  font-size: ${(props) => props.theme.fonts.size.small};
 `;
 
 export const Form = styled.form`
@@ -46,16 +48,14 @@ export const SocialButton = styled(Button)`
   height: 4.3rem;
   width: 4.3rem;
 
+  background-color: ${(props) => props.theme.colors.primary};
   transition: all 0.5s ease-in-out;
-
-  &:hover {
-    background-color: ${theme.colors.white};
-  }
 `;
 
 export const SocialButtonText = styled.p`
-  font-family: ${theme.fonts.family.secondary};
-  font-size: ${theme.fonts.size.tiny};
+  font-family: ${(props) => props.theme.fonts.family.secondary};
+  font-size: ${(props) => props.theme.fonts.size.tiny};
+  color: ${(props) => props.theme.colors.secondary};
 `;
 
 export const SocialButtonImg = styled.img`

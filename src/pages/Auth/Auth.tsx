@@ -7,10 +7,12 @@ import { Input } from '@components/Input/Input';
 
 // CONTEXTS
 import { useAuthContextHook } from '@contexts/auth.context';
+import { useThemeContextHook } from '@contexts/theme.context';
 
 // ENUMS
 import { EAuthProvider } from '@enums/auth';
 import { EButtonStyle } from '@enums/buttons';
+import { ETheme } from '@enums/theme';
 
 // HOOKS
 import { useIsAuthenticated } from '@hooks/useIsAuthenticated';
@@ -33,7 +35,15 @@ export const AuthPage = () => {
   /* Hooks */
   const navigate = useNavigate();
   const isAuthenticated = useIsAuthenticated();
+  const { theme } = useThemeContextHook();
   const { signInWithGoogle, signInWithEmailAndPassword } = useAuthContextHook();
+
+  /* Vars */
+  const googleLogo = '/assets/images/auth/google.svg';
+  const linkedinLogo = '/assets/images/auth/linkedin.svg';
+  const facebookLogo = '/assets/images/auth/facebook.svg';
+  const githubLogo =
+    theme?.title === ETheme.LIGHT ? '/assets/images/auth/github-light.svg' : '/assets/images/auth/github.svg';
 
   /* Handlers */
   const inputChangeHandler = (field: string, value: string) => {
@@ -102,7 +112,7 @@ export const AuthPage = () => {
             styles={EButtonStyle.OUTLINED}
             onClick={() => signInWithOAuthHandler(EAuthProvider.GOOGLE)}
           >
-            <Styled.SocialButtonImg src="/assets/images/auth/google.png" alt="Google" />
+            <Styled.SocialButtonImg src={googleLogo} alt="Google" />
             <Styled.SocialButtonText>Google</Styled.SocialButtonText>
           </Styled.SocialButton>
 
@@ -111,8 +121,8 @@ export const AuthPage = () => {
             styles={EButtonStyle.OUTLINED}
             onClick={() => signInWithOAuthHandler(EAuthProvider.LINKEDIN)}
           >
-            <Styled.SocialButtonImg src="/assets/images/auth/linkedin.png" alt="Linkedin" />
-            <Styled.SocialButtonText>linkedin</Styled.SocialButtonText>
+            <Styled.SocialButtonImg src={linkedinLogo} alt="Linkedin" />
+            <Styled.SocialButtonText>Linkedin</Styled.SocialButtonText>
           </Styled.SocialButton>
 
           <Styled.SocialButton
@@ -120,7 +130,7 @@ export const AuthPage = () => {
             styles={EButtonStyle.OUTLINED}
             onClick={() => signInWithOAuthHandler(EAuthProvider.GITHUB)}
           >
-            <Styled.SocialButtonImg src="/assets/images/auth/github.png" alt="Github" />
+            <Styled.SocialButtonImg src={githubLogo} alt="Github" />
             <Styled.SocialButtonText>Github</Styled.SocialButtonText>
           </Styled.SocialButton>
 
@@ -129,7 +139,7 @@ export const AuthPage = () => {
             styles={EButtonStyle.OUTLINED}
             onClick={() => signInWithOAuthHandler(EAuthProvider.FACEBOOK)}
           >
-            <Styled.SocialButtonImg src="/assets/images/auth/facebook.png" alt="Facebook" />
+            <Styled.SocialButtonImg src={facebookLogo} alt="Facebook" />
             <Styled.SocialButtonText>Facebook</Styled.SocialButtonText>
           </Styled.SocialButton>
         </Styled.SocialButtonsWrapper>

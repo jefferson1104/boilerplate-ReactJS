@@ -59,7 +59,7 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
       Cookies.set('token', data.accessToken, { expires: user.exp / 1000 });
       setUserToken(data.accessToken);
       setUser(user);
-      navigate('/profile');
+      navigate('/');
     } catch (error) {
       console.error('signInWithGoogle() Error', error);
       setIsAuthError(true);

@@ -1,6 +1,9 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components';
 
+// ENUMS
+import { ETheme } from '@enums/theme';
+
 // STYLES
 import light from '@styles/themes/light';
 import dark from '@styles/themes/dark';
@@ -28,12 +31,12 @@ const ThemeProvider = ({ children }: IThemeProviderProps) => {
 
   /* Handlers */
   const toggleThemeHandler = () => {
-    if (theme.title === 'light') {
+    if (theme.title === ETheme.LIGHT) {
       setTheme(dark);
       localStorage.setItem('theme', JSON.stringify(dark));
     }
 
-    if (theme.title === 'dark') {
+    if (theme.title === ETheme.DARK) {
       setTheme(light);
       localStorage.setItem('theme', JSON.stringify(light));
     }
