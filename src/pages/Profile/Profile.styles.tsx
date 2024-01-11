@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-import { theme } from '@styles/theme';
-
+// PROFILE PAGE STYLES
 export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 4rem);
 `;
 
 export const Header = styled.header`
@@ -35,7 +34,7 @@ export const Image = styled.img`
   height: 8rem;
 
   border-radius: 50%;
-  border: 2px solid ${theme.colors.electronBlue};
+  border: 2px solid ${(props) => props.theme.colors.electronBlue};
 
   will-change: filter;
   transition: all 0.5s ease-in-out;
@@ -46,18 +45,18 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h1`
-  font-size: ${theme.fonts.size.huge};
-  font-weight: ${theme.fonts.weight.bold};
+  font-size: ${(props) => props.theme.fonts.size.huge};
+  font-weight: ${(props) => props.theme.fonts.weight.bold};
 
   ${media.lessThan('medium')`
-    font-size: ${theme.fonts.size.medium};
+    font-size: ${(props) => props.theme.fonts.size.medium};
   `}
 `;
 
 export const Paragraph = styled.p`
-  font-size: ${theme.fonts.size.medium};
+  font-size: ${(props) => props.theme.fonts.size.medium};
 
   ${media.lessThan('medium')`
-    font-size: ${theme.fonts.size.small};
+    font-size: ${(props) => props.theme.fonts.size.small};
   `}
 `;
