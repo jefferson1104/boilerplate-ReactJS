@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 2rem;
 
-  height: 100vh;
+  height: calc(100vh - 4rem);
 `;
 
 export const Title = styled.h1`

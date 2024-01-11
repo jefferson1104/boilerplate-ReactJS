@@ -71,6 +71,37 @@ export const AuthPage = () => {
     }
   };
 
+  /* Utils */
+  const authSocialOptions = [
+    {
+      provider: 'Google',
+      logo: '/assets/images/auth/google.svg',
+      handler: () => signInWithOAuthHandler(EAuthProvider.GOOGLE)
+    },
+    {
+      provider: 'Linkedin',
+      logo: '/assets/images/auth/linkedin.svg',
+      handler: () => console.log(EAuthProvider.LINKEDIN)
+    },
+    {
+      provider: 'Github',
+      logo: theme?.title === ETheme.LIGHT ? '/assets/images/auth/github-light.svg' : '/assets/images/auth/github.svg',
+      handler: () => console.log(EAuthProvider.GITHUB)
+    },
+    {
+      provider: 'Facebook',
+      logo: '/assets/images/auth/facebook.svg',
+      handler: () => console.log(EAuthProvider.FACEBOOK)
+    }
+  ];
+
+  const renderAuthSocialButtons = authSocialOptions.map((option) => (
+    <Styled.SocialButton key={option.provider} type="button" styles={EButtonStyle.OUTLINED} onClick={option.handler}>
+      <Styled.SocialButtonImg src={option.logo} alt={option.provider} />
+      <Styled.SocialButtonText>{option.provider}</Styled.SocialButtonText>
+    </Styled.SocialButton>
+  ));
+
   /* Lifecyles */
   useEffect(() => {
     if (isAuthenticated) {
@@ -106,43 +137,7 @@ export const AuthPage = () => {
 
         <Styled.Text>Or sign in with</Styled.Text>
 
-        <Styled.SocialButtonsWrapper>
-          <Styled.SocialButton
-            type="button"
-            styles={EButtonStyle.OUTLINED}
-            onClick={() => signInWithOAuthHandler(EAuthProvider.GOOGLE)}
-          >
-            <Styled.SocialButtonImg src={googleLogo} alt="Google" />
-            <Styled.SocialButtonText>Google</Styled.SocialButtonText>
-          </Styled.SocialButton>
-
-          <Styled.SocialButton
-            type="button"
-            styles={EButtonStyle.OUTLINED}
-            onClick={() => signInWithOAuthHandler(EAuthProvider.LINKEDIN)}
-          >
-            <Styled.SocialButtonImg src={linkedinLogo} alt="Linkedin" />
-            <Styled.SocialButtonText>Linkedin</Styled.SocialButtonText>
-          </Styled.SocialButton>
-
-          <Styled.SocialButton
-            type="button"
-            styles={EButtonStyle.OUTLINED}
-            onClick={() => signInWithOAuthHandler(EAuthProvider.GITHUB)}
-          >
-            <Styled.SocialButtonImg src={githubLogo} alt="Github" />
-            <Styled.SocialButtonText>Github</Styled.SocialButtonText>
-          </Styled.SocialButton>
-
-          <Styled.SocialButton
-            type="button"
-            styles={EButtonStyle.OUTLINED}
-            onClick={() => signInWithOAuthHandler(EAuthProvider.FACEBOOK)}
-          >
-            <Styled.SocialButtonImg src={facebookLogo} alt="Facebook" />
-            <Styled.SocialButtonText>Facebook</Styled.SocialButtonText>
-          </Styled.SocialButton>
-        </Styled.SocialButtonsWrapper>
+        <Styled.SocialButtonsWrapper>{renderAuthSocialButtons}</Styled.SocialButtonsWrapper>
       </Styled.Form>
     </Styled.Wrapper>
   );
