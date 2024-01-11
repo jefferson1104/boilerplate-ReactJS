@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
+// HEADER COMPONENT STYLES
 export const Wrapper = styled.header`
   display: flex;
   align-items: center;
