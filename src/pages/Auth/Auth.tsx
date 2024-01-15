@@ -36,7 +36,7 @@ export const AuthPage = () => {
   const navigate = useNavigate();
   const isAuthenticated = useIsAuthenticated();
   const { theme } = useThemeContextHook();
-  const { signInWithGoogle, signInWithEmailAndPassword } = useAuthContextHook();
+  const { signInWithGithub, signInWithGoogle, signInWithEmailAndPassword } = useAuthContextHook();
 
   /* Handlers */
   const inputChangeHandler = (field: string, value: string) => {
@@ -62,6 +62,11 @@ export const AuthPage = () => {
       await signInWithGoogle();
       return;
     }
+
+    if (provider === EAuthProvider.GITHUB) {
+      await signInWithGithub();
+      return;
+    }
   };
 
   /* Utils */
@@ -72,19 +77,9 @@ export const AuthPage = () => {
       handler: () => signInWithOAuthHandler(EAuthProvider.GOOGLE)
     },
     {
-      provider: 'Linkedin',
-      logo: '/assets/images/auth/linkedin.svg',
-      handler: () => console.log(EAuthProvider.LINKEDIN)
-    },
-    {
       provider: 'Github',
       logo: theme?.title === ETheme.LIGHT ? '/assets/images/auth/github-light.svg' : '/assets/images/auth/github.svg',
-      handler: () => console.log(EAuthProvider.GITHUB)
-    },
-    {
-      provider: 'Facebook',
-      logo: '/assets/images/auth/facebook.svg',
-      handler: () => console.log(EAuthProvider.FACEBOOK)
+      handler: () => signInWithOAuthHandler(EAuthProvider.GITHUB)
     }
   ];
 

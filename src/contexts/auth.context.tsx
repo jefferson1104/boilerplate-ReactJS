@@ -15,12 +15,13 @@ interface IAuthProviderProps {
 }
 
 interface IAuthContext {
-  isAuthLoading: boolean;
   isAuthError: boolean;
+  isAuthLoading: boolean;
   signInWithEmailAndPassword: (email: string, password: string) => Promise<void>;
+  signInWithGithub: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
-  userToken?: string;
   user?: IFirebaseUser;
+  userToken?: string;
 }
 
 // AUTH CONTEXT
@@ -40,6 +41,32 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
   /* Handlers */
   const signInWithEmailAndPassword = async (email: string, password: string): Promise<void> => {
     await AuthService.signInWithEmailAndPassword(email, password);
+  };
+
+  const signInWithGithub = async (): Promise<void> => {
+    try {
+      setIsAuthLoading(true);
+      setIsAuthError(false);
+      const response = await AuthService.signInWithGithub();
+
+      if (!response.user) {
+        setIsAuthError(true);
+        return;
+      }
+
+      const data = response.user as unknown as IFirebaseSignInToken;
+      const user = JWTDecode(data.accessToken);
+
+      Cookies.set('token', data.accessToken, { expires: user.exp / 1000 });
+      setUserToken(data.accessToken);
+      setUser(user);
+      navigate('/');
+    } catch (error) {
+      console.error('signInWithGithub() Error', error);
+      setIsAuthError(true);
+    } finally {
+      setIsAuthLoading(false);
+    }
   };
 
   const signInWithGoogle = async (): Promise<void> => {
@@ -82,7 +109,15 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
   /* Render */
   return (
     <AuthContext.Provider
-      value={{ signInWithGoogle, signInWithEmailAndPassword, isAuthLoading, isAuthError, userToken, user }}
+      value={{
+        signInWithGithub,
+        signInWithGoogle,
+        signInWithEmailAndPassword,
+        isAuthLoading,
+        isAuthError,
+        userToken,
+        user
+      }}
     >
       {children}
     </AuthContext.Provider>

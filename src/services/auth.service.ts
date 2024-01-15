@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, UserCredential, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, GithubAuthProvider, UserCredential, signInWithPopup } from 'firebase/auth';
 
 // UTILS
 import { firebaseAuth } from '@utils/firebase';
@@ -23,5 +23,13 @@ export const AuthService = {
     const responseGoogleAuth = await signInWithPopup(firebaseAuth, googleFirebaseProvider);
 
     return responseGoogleAuth;
+  },
+
+  signInWithGithub: async (): Promise<UserCredential> => {
+    const googleFirebaseProvider = new GithubAuthProvider();
+
+    const responseGithubAuth = await signInWithPopup(firebaseAuth, googleFirebaseProvider);
+
+    return responseGithubAuth;
   }
 };

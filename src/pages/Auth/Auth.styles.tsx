@@ -41,15 +41,9 @@ export const SocialButtonsWrapper = styled.div`
 `;
 
 export const SocialButton = styled(Button)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  height: 4.3rem;
-  width: 4.3rem;
-
   background-color: ${(props) => props.theme.colors.primary};
   transition: all 0.5s ease-in-out;
+  padding: 2rem;
 `;
 
 export const SocialButtonText = styled.p`
