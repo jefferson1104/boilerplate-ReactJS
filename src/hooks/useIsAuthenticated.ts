@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-// USEISAUTHENTICATED HOOK
+// USE ISAUTHENTICATED HOOK
 const useIsAuthenticated = () => {
   /* States */
   const [authenticated, setAuthenticated] = useState(!!Cookies.get('token'));
