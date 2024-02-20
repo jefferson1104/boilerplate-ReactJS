@@ -59,8 +59,8 @@ $ npm run dev
 ## 🎨 Screenshots
 
 <div style="display:flex;flex-direction:column">
-  <img alt="screenshot" src="screenshot-01.png">
-  <img alt="screenshot" src="screenshot-02.png">
-  <img alt="screenshot" src="screenshot-03.png">
-  <img alt="screenshot" src="screenshot-04.png">
+  <img alt="screenshot" src="/assets/images/screenshots/screenshot-01.png">
+  <img alt="screenshot" src="/assets/images/screenshots/screenshot-02.png">
+  <img alt="screenshot" src="/assets/images/screenshots/screenshot-03.png">
+  <img alt="screenshot" src="/assets/images/screenshots/screenshot-04.png">
 </div>
